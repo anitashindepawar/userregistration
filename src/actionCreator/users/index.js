@@ -32,6 +32,13 @@ export const getUserByUserID = (userId) => {
     };
 };
 
+export const getUserByUserID2 = (userId) => {
+    return async function (dispatch, getState) {
+        const user = await getUserAPI.get('/users/' + userId);
+        dispatch({ type: FETCH_USER_BY_ID, payload: user.data });
+    };
+};
+
 export const deleteUser = (userID) => {
     return async function (dispatch, getState) {
         const deleteUser = await getUserAPI.delete('/users/' + userID);
