@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "name": "silam",
+      "role": "sr dev",
+      "company": "NAB",
+      "id": 7
+    },
+    {
+      "name": "Anita",
+      "role": "developer",
+      "company": "NAB",
+      "id": 8
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "title": "Sr. Developer"
+    },
+    {
+      "id": 2,
+      "title": "Developer"
+    }
+  ],
+  "company": [
+    {
+      "name": "NAB"
+    },
+    {
+      "name": "ANZ"
+    }
+  ]
+}
