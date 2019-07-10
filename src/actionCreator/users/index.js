@@ -23,7 +23,7 @@ export const updateUser = (user) => {
         const modifiedUserData = await getUserAPI.put('/users/' + user.id, user);
         dispatch({ type: UPDATED_USER, payload: modifiedUserData.data, isUserUpdated: true });
     };
-};
+}; 
 
 export const getUserByUserID = (userId) => {
     return async function (dispatch, getState) {
@@ -32,11 +32,7 @@ export const getUserByUserID = (userId) => {
     };
 };
 
-<<<<<<< HEAD
-export const getUserByUserID1 = (userId) => {
-=======
 export const getUserByUserID2 = (userId) => {
->>>>>>> 8ed0727f057713ed8f784c1c23db7f4a7d6c2c96
     return async function (dispatch, getState) {
         const user = await getUserAPI.get('/users/' + userId);
         dispatch({ type: FETCH_USER_BY_ID, payload: user.data });
