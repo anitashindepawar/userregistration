@@ -5,6 +5,7 @@ import { FETCH_USERS, FETCH_USER_BY_ID, UPDATED_USER, CREATE_USER, DELETED_USER,
 
 export const getUsers = () => {
     return async function (dispatch, getState) {
+        //async call to fetch all the users
         const users = await getUserAPI.get('/users');
         dispatch({ type: FETCH_USERS, payload: users.data });
     };

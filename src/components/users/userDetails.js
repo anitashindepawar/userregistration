@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getUserByUserID, createUser, updateUser, resetUserState } from '../../actionCreator/users'
 
 
-class UserDetails extends React.Component {
+export class UserDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = { userName: '', companyName: '', roleName: '' };
@@ -47,8 +47,8 @@ class UserDetails extends React.Component {
                     value={this.state.roleName || userDet.role} />
             </div>
             <div>
-                <button className="ui button" type="submit" onClick={this.submitUserDetails}>Submit</button>
-                <button className="ui button" type="button" onClick={this.cancelUpdation}>Cancel</button>
+                <button className="ui button" id = "submitButton" type="submit" onClick={this.submitUserDetails}>Submit</button>
+                <button className="ui button" id = "cancelButton" type="button" onClick={this.cancelUpdation}>Cancel</button>
             </div>
         </form>);
     };
@@ -68,6 +68,7 @@ class UserDetails extends React.Component {
 
     cancelUpdation = () => {
         this.props.resetUserState();
+        this.props.history && 
         this.props.history.push('/');
     }
 
@@ -80,7 +81,7 @@ class UserDetails extends React.Component {
             company: this.state.companyName || userDet.company
         }
 
-        if (this.props.location.pathname.includes('create')) {
+        if (this.props.location && this.props.location.pathname.includes('create')) {
             this.props.createUser(newUser);
         } else {
             newUser.id = this.props.match.params.id;
